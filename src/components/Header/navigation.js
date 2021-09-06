@@ -15,7 +15,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchNavigationData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

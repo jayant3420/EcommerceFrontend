@@ -5,8 +5,7 @@ import { productLikeUpdate } from "../actions/store/productLikeUpdate";
 import { addItemToCart } from "../actions/home/cart";
 import { useHistory } from "react-router-dom";
 
-export const BestSellerItemList = (props) => {
-  const category = props.category;
+export const BestSellerItemList = ({category}) => {
   const [visibleItems, setVisibleItems] = useState(8);
   const productsDetail = useSelector((state) => state.productsDetail);
   const cartItems = useSelector((state) => state.cartData);

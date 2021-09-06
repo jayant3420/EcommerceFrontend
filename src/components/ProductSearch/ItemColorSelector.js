@@ -19,7 +19,7 @@ const ItemColorSelector = () => {
   useEffect(() => {
     setColorText(colorSelect);
     dispatch({ type: "PAGENUMBERUPDATE", payload: 1 });
-  }, [colorSelect]);
+  }, [colorSelect, dispatch]);
   return (
     <div className="color-selector-container">
       <p className="data-category">COLOR</p>

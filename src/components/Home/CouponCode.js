@@ -38,10 +38,16 @@ const CouponCode = () => {
   };
 
   useEffect(() => {
+    const couponClose = () => {
+      dispatch({ type: "COUPON", payload: [] });
+      dispatch({ type: "COUPONAMOUNT", payload: 0 });
+      dispatch({ type: "DISCOUNTGETREQUEST", payload: "no" });
+      setVoucherCode("");
+    };
     if (!voucherCode) {
       couponClose();
     }
-  }, [voucherCode]);
+  }, [voucherCode, dispatch]);
 
   let couponAmount = 0;
   if (coupon.length) {
@@ -57,7 +63,7 @@ const CouponCode = () => {
 
   useEffect(() => {
     dispatch({ type: "COUPONAMOUNT", payload: couponAmount });
-  }, [couponAmount]);
+  }, [couponAmount, dispatch]);
 
   useEffect(() => {
     if (discountGetRequest === "yes" && coupon.length === 0) {

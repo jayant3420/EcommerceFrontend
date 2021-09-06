@@ -22,7 +22,7 @@ const ItemPriceRange = () => {
   });
   useEffect(() => {
     dispatch({ type: "PRICERANGEUPDATE", payload: [min, max] });
-  }, [min, max]);
+  }, [min, max, dispatch]);
   return (
     <>
       <div className="item-price-range">

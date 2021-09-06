@@ -10,7 +10,7 @@ export const BestSellerNavigationBar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(bestSellerNavFetch());
-  }, []);
+  }, [dispatch]);
 
   const buttonFocus = (clsName) => {
     setCategory(clsName);
@@ -28,8 +28,8 @@ export const BestSellerNavigationBar = () => {
             const { id, navItem } = item;
             return (
               <button
-                className={`bestseller-nav-btn ${
-                  category === navItem ? "clicked" : ""
+                className={`bestseller-nav-btn${
+                  category === navItem ? " clicked" : ""
                 }`}
                 onClick={() => buttonFocus(navItem)}
                 key={id}

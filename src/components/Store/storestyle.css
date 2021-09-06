@@ -62,6 +62,7 @@
   width: 7rem;
   height: 3rem;
   position: relative;
+  text-transform: capitalize;
 }
 
 .bestseller-nav-btn:hover {

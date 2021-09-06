@@ -23,7 +23,7 @@ const Header = () => {
   useEffect(() => {
     dispatch(cartDataFetch());
     dispatch(productsDetailsFetch());
-  }, []);
+  }, [dispatch]);
 
   const menubar = () => {
     const navBar = document.getElementById("navigation-bar");

@@ -14,7 +14,7 @@ const NavMb = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchNavigationData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

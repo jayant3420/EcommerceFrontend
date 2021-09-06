@@ -30,7 +30,7 @@ const PaginationRounded = () => {
   };
   useEffect(() => {
     dispatch({ type: "PAGENUMBERUPDATE", payload: 1 });
-  }, [selectShow]);
+  }, [selectShow, dispatch]);
   return (
     <>
       <div className={classes.root}>

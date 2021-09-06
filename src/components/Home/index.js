@@ -5,6 +5,7 @@ import Hometitle from "./hometitle";
 import Cartitembilling from "./cartitembilling";
 import Footer from "../Footer";
 import { useLocation } from "react-router";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const Index = () => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const Index = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Hometitle />
       <Cartdetails />
       <Cartitembilling />

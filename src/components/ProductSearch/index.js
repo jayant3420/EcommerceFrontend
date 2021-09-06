@@ -30,7 +30,7 @@ const Index = ({ category }) => {
       dispatch({ type: "SUBCATEGORY", payload: filterSubcategoryProductArray });
     };
     categoryDataFetch();
-  }, [filteredCategProductArray, filterSubcategoryProductArray]);
+  }, [filteredCategProductArray, filterSubcategoryProductArray, dispatch]);
 
   const location = useLocation();
   const menuManupilate = () => {

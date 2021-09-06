@@ -8,6 +8,7 @@ import Pagination from "./Pagination";
 import ForwardBackword from "./ForwardBackword";
 
 const ProductDisplay = () => {
+  const dispatch = useDispatch();
   let filterProduct = useSelector((state) => state.filterProduct);
   let products = filterProduct.subcategoriesProducts;
   const cartItems = useSelector((state) => state.cartData);
@@ -68,9 +69,9 @@ const ProductDisplay = () => {
       dispatch({ type: "TOTALPRODUCTUPDATE", payload: products.length });
     };
     brandUpdate();
-  }, [products]);
+  }, [products, dispatch]);
 
-  const dispatch = useDispatch();
+  
   const history = useHistory();
 
   const LikeItem = (id, like) => {

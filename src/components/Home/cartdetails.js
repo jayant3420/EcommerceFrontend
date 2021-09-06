@@ -40,13 +40,12 @@ const BlankCartIndicator = () => {
 };
 
 const Cartdetails = () => {
-  let cartData = useSelector((state) => state.cartData);
-  let cart = cartData.cart;
+  const {cart} = useSelector((state) => state.cartData);
   const dispatch = useDispatch();
   const classes = useStyles();
 
-  const cartItemRemove = (id) => {
-    dispatch(deleteCartItem(id));
+  const cartItemRemove = async (id) => {
+    await dispatch(deleteCartItem(id));
   };
 
   const itemQuantityDecrement = (id, quantity) => {

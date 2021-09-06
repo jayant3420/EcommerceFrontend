@@ -19,7 +19,7 @@ const Footer = () => {
 
   useEffect(() => {
     dispatch(footerDataFetch());
-  }, []);
+  }, [dispatch]);
 
   const [updata, ...lowdata] = footerData;
   const upperdata = updata ? updata.data : [];
