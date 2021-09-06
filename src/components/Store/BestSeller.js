@@ -50,7 +50,7 @@ export const BestSellerNavigationBar = () => {
             const { id, navItem } = item;
             return (
               <option value={navItem.toLowerCase()} key={id}>
-                {navItem}
+                {navItem.charAt(0).toUpperCase() + navItem.slice(1)}
               </option>
             );
           })}

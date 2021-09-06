@@ -32,7 +32,7 @@ const Index = ({ category }) => {
     categoryDataFetch();
   }, [filteredCategProductArray, filterSubcategoryProductArray, dispatch]);
 
-  const location = useLocation();
+  const { pathname } = useLocation();
   const menuManupilate = () => {
     const navBar = document.getElementById("navigation-bar");
     const navMobile = document.getElementById("nav-mobile-view");
@@ -49,7 +49,7 @@ const Index = ({ category }) => {
 
   useEffect(() => {
     menuManupilate();
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <>
