@@ -24,8 +24,8 @@ const NavMobileView = () => {
     };
   }, []);
 
-  const cartData = useSelector((state) => state.cartData);
-  const cart = cartData.cart;
+  const { cart } = useSelector((state) => state.cartData);
+  const { discountAmount } = useSelector((state) => state.getDiscountCoupon);
   const totalItems = cart.reduce((acc, cur) => {
     acc = acc + cur.quantity;
     return acc;
@@ -44,7 +44,9 @@ const NavMobileView = () => {
           <i className="fas fa-suitcase-rolling suitcase-mb"></i>
           <span className="notification-icon-mb">{totalItems}</span>
           <span className="cart-item-mb">{totalItems} items</span>
-          <span className="cart-bill-mb">&#36;{totalBill}</span>
+          <span className="cart-bill-mb">
+            &#36;{totalBill - discountAmount}
+          </span>
         </div>
         <div className="profile-name-mb">
           <i className="far fa-user"></i>
