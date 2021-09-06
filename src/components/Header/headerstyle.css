@@ -432,7 +432,6 @@
   }
 
   .nav-ul,
-  .nav-ul li:hover .arrow-up,
   .nav-ul li:hover .navitem-explore {
     display: block;
   }
@@ -442,7 +441,11 @@
   }
 
   .arrow-up {
-    left: 48%;
+    display: block;
+    left: 68%;
+    bottom: 27px;
+    border-top: 8px solid #ccc;
+    border-bottom: 8px solid transparent;
   }
 
   .navitems {
