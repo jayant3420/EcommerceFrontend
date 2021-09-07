@@ -1,5 +1,10 @@
 import React, { createContext, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import {
+  useParams,
+  useLocation,
+  useRouteMatch,
+  Redirect
+} from "react-router-dom";
 import ProductDetail from "./ProductDetail";
 import "./productdetailstyle.css";
 import ProductNav from "./ProductNav";
@@ -10,7 +15,9 @@ const context = createContext();
 
 const Index = ({ category }) => {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
   const { subcategory } = useParams();
+  const { isExact } = useRouteMatch();
   const catData = { cat: category, sub: subcategory };
   const productsDetail = useSelector((state) => state.productsDetail);
   const products = productsDetail.products;
@@ -32,7 +39,6 @@ const Index = ({ category }) => {
     categoryDataFetch();
   }, [filteredCategProductArray, filterSubcategoryProductArray, dispatch]);
 
-  const { pathname } = useLocation();
   const menuManupilate = () => {
     const navBar = document.getElementById("navigation-bar");
     const navMobile = document.getElementById("nav-mobile-view");
@@ -53,6 +59,7 @@ const Index = ({ category }) => {
 
   return (
     <>
+      {!isExact && <Redirect to="/home" />}
       <ScrollToTop />
       <div className="product-detail-container">
         <ProductNav screen={"web"} />

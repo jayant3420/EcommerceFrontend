@@ -23,8 +23,8 @@ const Index = () => {
           <Navigation />
           <div className="main-container" id="main-container">
             <Switch>
-              <Route path="/home" component={Home} />
-              <Route path="/store" component={Store} />
+              <Route path="/home" component={Home} exact />
+              <Route path="/store" component={Store} exact />
               <Route
                 path="/iphone/:subcategory"
                 component={() => <ProductSearch category={"iphone"} />}
