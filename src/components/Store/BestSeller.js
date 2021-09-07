@@ -5,8 +5,7 @@ import { BestSellerItemList } from "./BestSellerItemList";
 
 export const BestSellerNavigationBar = () => {
   const [category, setCategory] = useState("all");
-  const bestSeller = useSelector((state) => state.bestSellerNavData);
-  const bestSellerArray = bestSeller.bestsellernav;
+  const { bestsellernav } = useSelector((state) => state.bestSellerNavData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(bestSellerNavFetch());
@@ -24,7 +23,7 @@ export const BestSellerNavigationBar = () => {
     <>
       <div className="bestseller-navigation-container">
         <div className="bestseller-navigation flex-row">
-          {bestSellerArray.map((item) => {
+          {bestsellernav.map((item) => {
             const { id, navItem } = item;
             return (
               <button
@@ -46,7 +45,7 @@ export const BestSellerNavigationBar = () => {
           id="bestseller-nav-mobile"
           onChange={selectFocus}
         >
-          {bestSellerArray.map((item) => {
+          {bestsellernav.map((item) => {
             const { id, navItem } = item;
             return (
               <option value={navItem.toLowerCase()} key={id}>

@@ -1,16 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RatingStars } from "./RatingStars";
 import { productLikeUpdate } from "../actions/store/productLikeUpdate";
 import { addItemToCart } from "../actions/home/cart";
 import { useHistory } from "react-router-dom";
 
-export const BestSellerItemList = ({category}) => {
+export const BestSellerItemList = ({ category }) => {
   const [visibleItems, setVisibleItems] = useState(8);
-  const productsDetail = useSelector((state) => state.productsDetail);
-  const cartItems = useSelector((state) => state.cartData);
-  const cart = cartItems.cart;
-  const products = productsDetail.products;
+  const { products } = useSelector((state) => state.productsDetail);
+  const { cart } = useSelector((state) => state.cartData);
   const dispatch = useDispatch();
   const history = useHistory();
   let bestsellerproducts = [];
@@ -29,6 +27,10 @@ export const BestSellerItemList = ({category}) => {
       );
     });
   }
+
+  useEffect(() => {
+    setVisibleItems(8);
+  }, [category]);
 
   const LikeItem = (id, like) => {
     dispatch(productLikeUpdate(id, like));
